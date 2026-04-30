@@ -1,8 +1,8 @@
 import axios from 'axios';
 import type { ApiResponse, UploadResponse, QueryResponse } from '@/types';
 
-// API 基础路径（开发环境使用代理，生产环境替换为实际地址）
-const API_BASE = '/api/v1';
+// 读取 Vite 环境变量中的后端地址，如果没有配置（本地开发时），则默认使用 '/api/v1'
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 // 创建 axios 实例
 const api = axios.create({
